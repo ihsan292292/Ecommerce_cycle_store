@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+   <head>
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+      <!-- bootstrap css -->
+      <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
+      <!-- style css -->
+      <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+      <!-- Responsive-->
+      <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
+      <!-- fevicon -->
+      <link rel="icon" href="{% static 'images/fevicon.png' %}" type="image/gif" />
+      <!-- Scrollbar Custom CSS -->
+      <link rel="stylesheet" href="{% static 'css/jquery.mCustomScrollbar.min.css' %}">
+      <!-- Tweaks for older IEs-->
+      <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+      <!-- owl stylesheets --> 
+      <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
+      <link rel="stylesoeet" href="{% static 'css/owl.theme.default.min.css' %}">
+      {% comment %} font-awsome {% endcomment %}
+      <script src="https://kit.fontawesome.com/013739e9d3.js" crossorigin="anonymous"></script>
+
+      {% comment %} css {% endcomment %}
+      <style>      
+         @import url('https://fonts.googleapis.com/css?family=Open+Sans');
+         @import url('https://fonts.googleapis.com/css?family=Montserrat');
+         
+         body {
+             font-family: 'Montserrat', sans-serif;
+         
+         }
+         
+         /* Category Ads */
+         
+         #ads {
+             margin: 30px 0 30px 0;
+            
+         }
+         
+         #ads .card-notify-badge {
+                 position: absolute;
+                 left: -10px;
+                 top: -20px;
+                 background: #f2d900;
+                 text-align: center;
+                 border-radius: 30px 30px 30px 30px; 
+                 color: #000;
+                 padding: 5px 10px;
+                 font-size: 14px;
+         
+             }
+         
+         #ads .card-notify-year {
+                 position: absolute;
+                 right: -10px;
+                 top: -20px;
+                 background: #ff4444;
+                 border-radius: 50%;
+                 text-align: center;
+                 color: #fff;      
+                 font-size: 14px;      
+                 width: 50px;
+                 height: 50px;    
+                 padding: 15px 0 0 0;
+         }
+         
+         
+         #ads .card-detail-badge {      
+                 background: #f2d900;
+                 text-align: center;
+                 border-radius: 30px 30px 30px 30px;
+                 color: #000;
+                 padding: 5px 10px;
+                 font-size: 14px;        
+             }
+         
+            
+         
+         #ads .card:hover {
+                     background: #fff;
+                     box-shadow: 12px 15px 20px 0px rgba(46,61,73,0.15);
+                     border-radius: 4px;
+                     transition: all 0.3s ease;
+                 }
+         
+         #ads .card-image-overlay {
+                 font-size: 20px;
+                 
+             }
+         
+         
+         #ads .card-image-overlay span {
+                     display: inline-block;              
+                 }
+         
+         
+         #ads .ad-btn {
+                 text-transform: uppercase;
+                 width: 150px;
+                 height: 40px;
+                 border-radius: 80px;
+                 font-size: 16px;
+                 line-height: 35px;
+                 text-align: center;
+                 border: 3px solid #e6de08;
+                 display: block;
+                 text-decoration: none;
+                 margin: 20px auto 1px auto;
+                 color: #000;
+                 overflow: hidden;        
+                 position: relative;
+                 background-color: #e6de08;
+             }
+         
+         #ads .ad-btn:hover {
+                     background-color: #e6de08;
+                     color: #1e1717;
+                     border: 2px solid #e6de08;
+                     background: transparent;
+                     transition: all 0.3s ease;
+                     box-shadow: 12px 15px 20px 0px rgba(46,61,73,0.15);
+                 }
+         
+         #ads .ad-title h5 {
+                 text-transform: uppercase;
+                 font-size: 18px;
+             }
+             
+             {% comment %} search bar {% endcomment %}
+
+             .search-box {
+               font-size: 10px;
+               border: solid 0.3em #fff;
+               display: inline-block;
+               position: relative;
+               border-radius: 2.5em;
+               margin-top: 7px;
+               margin-left: 20px
+           }
+            .search-box input[type="text"] {
+               font-family: inherit;
+               font-weight: bold;
+               width: 2.5em;
+               height: 2.5em;
+               padding: 0.3em 2.1em 0.3em 0.4em;
+               border: none;
+               box-sizing: border-box;
+               border-radius: 2.5em;
+               transition: width 800ms cubic-bezier(0.68, -0.55, 0.27, 1.55) 150ms;
+           }
+            .search-box input[type="text"]:focus {
+               outline: none;
+           }
+            .search-box input[type="text"]:focus, .search-box input[type="text"]:not(:placeholder-shown) {
+               width: 18em;
+               transition: width 800ms cubic-bezier(0.68, -0.55, 0.27, 1.55);
+           }
+            .search-box input[type="text"]:focus + button[type="reset"], .search-box input[type="text"]:not(:placeholder-shown) + button[type="reset"] {
+               transform: rotate(-45deg) translateY(0);
+               transition: transform 150ms ease-out 800ms;
+           }
+            .search-box input[type="text"]:focus + button[type="reset"]:after, .search-box input[type="text"]:not(:placeholder-shown) + button[type="reset"]:after {
+               opacity: 1;
+               transition: top 150ms ease-out 950ms, right 150ms ease-out 950ms, opacity 150ms ease 950ms;
+           }
+            .search-box button[type="reset"] {
+               background-color: transparent;
+               width: 1.4em;
+               height: 1.4em;
+               border: 0;
+               padding: 0;
+               outline: 0;
+               display: flex;
+               justify-content: center;
+               align-items: center;
+               position: absolute;
+               top: 0.55em;
+               right: 0.55em;
+               transform: rotate(-45deg) translateY(2.2em);
+               transition: transform 150ms ease-out 150ms;
+           }
+            .search-box button[type="reset"]:before, .search-box button[type="reset"]:after {
+               content: "";
+               background-color: #000;
+               width: 0.3em;
+               height: 1.4em;
+               position: absolute;
+           }
+            .search-box button[type="reset"]:after {
+               transform: rotate(90deg);
+               opacity: 0;
+               transition: transform 150ms ease-out, opacity 150ms ease-out;
+           }
+     </style>
+     <script>
+      {% comment %} // Check if the session message exists
+      var alertMessageAlready = "{{ request.session.alert_message_already }}";
+      function alert(){
+         if (alertMessageAlready) {
+          // Display the alert using JavaScript
+          alert(alertMessageAlready);
+
+          // Clear the session message to avoid displaying it again
+          {% request.session.pop('alert_message_already') %}
+      }
+      } {% endcomment %}
+      
+  </script>
+{% comment %} ..........end_css......... {% endcomment %}
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+{% comment %} search box {% endcomment %}
+<script>
+   function search_cycle() {
+      var input, filter, mclass, sclass, h, i, txtValue;
+      input = document.getElementById("searchbar");
+      filter = input.value.toUpperCase();
+      mclass = document.getElementsByClassName("cycle_section_2"); // Use getElementsByClassName
+      for (i = 0; i < mclass.length; i++) { // Iterate through elements with the class
+          sclass = mclass[i].getElementsByClassName("row")[0]; // Use [0] to access the first element
+          var h1 = sclass.getElementsByTagName("h1")[0];
+          txtValue = h1.textContent || h1.innerText;
+          if (txtValue.toUpperCase().indexOf(filter) > -1) {
+              mclass[i].style.display = "";
+          } else {
+              mclass[i].style.display = "none";
+          }
+      }
+  }
+</script>
+<style>
+   .
+</style>
+
+   </head>
+   <body>
+    <!-- navbar-->
+    <nav class="navbar navbar-expand-lg navbar-light bg-primary">
+       <a href="{% url 'buyer_index_all' %}" class="logo"><img src="{% static 'images/logo.png' %}"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav">
+            <li class="nav-item dropdown">
+               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                 {{name.name}}
+               </a>
+               <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                 <a class="dropdown-item" href="http://127.0.0.1:8000/buyer-profile/"><i class="fas fa-user"></i> My Profile</a>
+                 <a class="dropdown-item" href="{% url 'view-cart' %}"><i class="fas fa-shopping-cart"></i> Orders</a>
+                 <a class="dropdown-item" href="{% url 'view-wishlist' %}"><i class="fab fa-gratipay"></i> Wishlist</a>
+                 <a class="dropdown-item" href="{% url 'view_total_order' %}"><i class="fab fa-gratipay"></i> Order History</a>
+                 <a class="dropdown-item" href="{% url 'buyer-logout' %}"><i class="fas fa-sign-out-alt"></i>Sign Out</a>
+               </div>
+             </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Features</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Pricing</a>
+            </li>
+            <li>
+               <form class="search-box"><input type="text" onkeyup="search_cycle()" id="searchbar" placeholder="search cylcles here.." /><button type="reset"></button></form>
+            </li>
+          </ul>
+        </div>
+      </nav>
+      <!-- navbar-end  -->
+      {% comment %} message {% endcomment %}
+      {% if messages %}
+      {% for message in messages%}
+      <div class="alert {{ message.tags }}" role="alert">
+         {{ message }}
+         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+           <span aria-hidden="true">&times;</span>
+         </button>
+      </div>
+      {% endfor %}
+      {% endif %}
+<!-- cycle section start -->
+<div class="cycle_section layout_padding">
+    <div class="container">
+       <h1 class="cycle_taital">Our cycles</h1>
+       <a type="button" class="btn btn-outline-primary" style="margin-left:150px;" href="http://127.0.0.1:8000/buyer-index-all/Mountain_Bikes">Mountain Bikes</a>
+       <a type="button" class="btn btn-outline-primary" style="margin-left:10px;" href="http://127.0.0.1:8000/buyer-index-all/Electric_Bicycles">Electric Bikes</a>
+       <a type="button" class="btn btn-outline-primary" style="margin-left:10px;" href="http://127.0.0.1:8000/buyer-index-all/Road_Bikes">Road Bikes</a>
+       <a type="button" class="btn btn-outline-primary" style="margin-left:10px;" href="http://127.0.0.1:8000/buyer-index-all/Hybrid_Bikes">Hybrid Bikes</a>
+       <a type="button" class="btn btn-outline-primary" style="margin-left:10px;" href="http://127.0.0.1:8000/buyer-index-all/Folding_Bikes">Folding Bikes</a>
+       <a type="button" class="btn btn-outline-primary" style="margin-left:10px;" href="http://127.0.0.1:8000/buyer-index-all/Comfort_Bikes">Comfort Bikes</a>
+       
+       <p class="cycle_text mt-4 mb-4">which age you are looking for </p><br>
+       <a type="button" class="btn btn-outline-dark" style="margin-left:175px;" href="http://127.0.0.1:8000/buyer-index-all/three-five">three-five</a>
+       <a type="button" class="btn btn-outline-dark" style="margin-left:10px;" href="http://127.0.0.1:8000/buyer-index-all/five-nine">five-nine</a>
+       <a type="button" class="btn btn-outline-dark" style="margin-left:10px;" href="http://127.0.0.1:8000/buyer-index-all/nine-forteen">nine-forteen</a>
+       <a type="button" class="btn btn-outline-dark" style="margin-left:10px;" href="http://127.0.0.1:8000/buyer-index-all/forteen-ninteen">forteen-ninteen</a>
+       <a type="button" class="btn btn-outline-dark" style="margin-left:10px;" href="http://127.0.0.1:8000/buyer-index-all/ninteen-twentyfive">ninteen-twentyfive</a>
+       <a type="button" class="btn btn-outline-dark" style="margin-left:10px;" href="http://127.0.0.1:8000/buyer-index-all/25_above">25_above</a>
+       {% for i,j,k,l,m,n,o, p in data %}
+
+       {% if j == url_variable %}
+       <div class="cycle_section_2 layout_padding">
+         <div class="row" id="row">
+             <div class="col-md-6">
+                <div class="box_main">
+                 <h6 class="number_text">{{i}}</h6>
+                 <div class="image_2"><img src="/static/Uploaded_images/{{p}}"></div>
+                </div>
+             </div>
+             <div class="col-md-6">
+                <h1 class="cycles_text">{{l}}</h1>
+                <p class="lorem_text"><h6><b>Bike Type : {{j}}</h6></b><br> 
+                <h6><b>Speed(gear) : {{m}}</h6></b><br> 
+                <h6><b>Age-Range : {{k}}</h6></b><br>
+                <h6><b>Color : <input type="color" value="{{n}}" disabled></h6></b><br> will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters</p>
+              
+                <div class="btn_main">
+                 <div class="buy_bt"><a href="{% url 'add_wishlist' i %}"><i class="fab fa-gratipay"></i> wishlist</a></div>
+                 <div class="buy_bt ml-2"><a href="{% url 'add-cart' i  %}">Add Cart</a></div>
+                 <h4 class="price_text">Price <span style=" color: #f7c17b">₹</span> <span style=" color: #325662">{{o}}</span></h4>
+                </div>
+             </div>
+        </div>
+       </div>
+       {% endif %}
+       {% if k == url_variable %}
+       <div class="cycle_section_2 layout_padding">
+          <div class="row">
+             <div class="col-md-6">
+                <div class="box_main">
+                   <h6 class="number_text">{{i}}</h6>
+                   <div class="image_2"><img src="/static/Uploaded_images/{{p}}"></div>
+                </div>
+             </div>
+             <div class="col-md-6">
+                <h1 class="cycles_text">{{l}}</h1>
+                <p class="lorem_text"><h6><b>Bike Type : {{j}}</h6></b><br> 
+                  <h6><b>Speed(gear) : {{m}}</h6></b><br> 
+                  <h6><b>Age-Range : {{k}}</h6></b><br>
+                  <h6><b>Color : <input type="color" value="{{n}}" disabled></h6></b><br> will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters</p>
+                  <div class="btn_main">
+                     <div class="buy_bt"><a href="{% url 'add_wishlist' i %}"><i class="fab fa-gratipay"></i> wishlist</a></div>
+                     <div class="buy_bt ml-2"><a href="{% url 'add-cart' i  %}">Add Cart</a></div>
+                     <h4 class="price_text">Price <span style=" color: #f7c17b">₹</span> <span style=" color: #325662">{{o}}</span></h4>
+                  </div>
+             </div>
+          </div>
+       </div>
+       {% endif %}
+       {% endfor %}
+       {% if k or j !=  url_variable %}
+       <p class="cycle_text mt-4 mb-4">No Items Found!!</p></b>
+       {% endif %}
+
+       <div class="read_btn_main">
+          <div class="read_bt"><a href="#">Read More</a></div>
+       </div>
+    </div>
+ </div>
+ 
+ <!-- cycle section end -->
+ <!-- about section start -->
+ <div class="about_section layout_padding">
+    <div class="container">
+       <h1 class="about_taital">About Our cycle Store</h1>
+       <p class="about_text">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters
+       </p>
+       <div class="about_main">
+          <img src="{% static 'images/img-5.png' %}" class="image_5">
+       </div>
+       <div class="read_bt_1"><a href="#">Read More</a></div>
+    </div>
+ </div>
+ <!-- about section end -->
+ <!-- client section start -->
+ 
+ <!-- client section end -->
+ <!-- news section start -->
+ <div class="news_section layout_padding">
+    <div class="container">
+       <h1 class="news_taital">News</h1>
+       <p class="news_text">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using </p>
+       <div class="news_section_2 layout_padding">
+          <div class="row">
+             <div class="col-sm-4">
+                <div class="box_main_1">
+                   <div class="zoomout frame"><img src="{% static 'images/img-6.png' %}"></div>
+                   <div class="padding_15">
+                      <h2 class="speed_text">Speed cycle</h2>
+                      <div class="post_text">Post by : Den <span style="float: right;">20-12-2019</span></div>
+                      <p class="long_text">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using </p>
+                   </div>
+                </div>
+             </div>
+             <div class="col-sm-4">
+                <div class="box_main_1">
+                   <div class="zoomout frame"><img src="{% static 'images/img-7.png' %}"></div>
+                   <div class="padding_15">
+                      <h2 class="speed_text">Speed cycle</h2>
+                      <div class="post_text">Post by : Den <span style="float: right;">20-12-2019</span></div>
+                      <p class="long_text">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using </p>
+                   </div>
+                </div>
+             </div>
+             <div class="col-sm-4">
+                <div class="box_main_1">
+                   <div class="zoomout frame"><img src="{% static 'images/img-8.png' %}"></div>
+                   <div class="padding_15">
+                      <h2 class="speed_text">Jaump cycle</h2>
+                      <div class="post_text">Post by : Den <span style="float: right;">20-12-2019</span></div>
+                      <p class="long_text">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using </p>
+                   </div>
+                </div>
+             </div>
+          </div>
+       </div>
+    </div>
+ </div>
+ <!-- news section end -->
+ <!-- contact section start -->
+ <div class="contact_section layout_padding">
+    <div class="container">
+       <div class="contact_main">
+          <h1 class="request_text">A Call Back</h1>
+          <form action="/action_page.php">
+             <div class="form-group">
+                <input type="text" class="email-bt" placeholder="Name" name="Name">
+             </div>
+             <div class="form-group">
+                <input type="text" class="email-bt" placeholder="Email" name="Name">
+             </div>
+             <div class="form-group">
+                <input type="text" class="email-bt" placeholder="Phone Numbar" name="Email">
+             </div>
+             <div class="form-group">
+                <textarea class="massage-bt" placeholder="Massage" rows="5" id="comment" name="Massage"></textarea>
+             </div>
+          </form>
+          <div class="send_btn"><a href="#">SEND</a></div>
+       </div>
+    </div>
+ </div>
+ <!-- contact section end -->
+ <!-- footer section start -->
+ <div class="footer_section layout_padding">
+    <div class="container-fluid">
+       <div class="row">
+          <div class="col-lg-8 col-sm-12 padding_0">
+             <div class="map_main">
+                <div class="map-responsive">
+                  <iframe src="https://www.google.com/maps/embed/v1/place?key=AIzaSyA0s1a7phLN0iaD6-UE7m4qP-z21pH0eSc&amp;q=Eiffel+Tower+Paris+France" width="600" height="400" frameborder="0" style="border:0; width: 100%;" allowfullscreen=""></iframe>
+                </div>
+             </div>
+          </div>
+          <div class="col-lg-4 col-sm-12">
+             <div class="call_text"><a href="#"><img src="{% static 'images/map-icon.png' %}"><span class="padding_left_0">Page when looking at its layou</span></a></div>
+             <div class="call_text"><a href="#"><img src="{% static 'images/call-icon.png' %}"><span class="padding_left_0">Call Now  +01 123467890</span></a></div>
+             <div class="call_text"><a href="#"><img src="{% static 'images/mail-icon.png' %}"><span class="padding_left_0">demo@gmail.com</span></a></div>
+             <div class="social_icon">
+                <ul>
+                   <li><a href="#"><img src="{% static 'images/fb-icon1.png' %}"></a></li>
+                   <li><a href="#"><img src="{% static 'images/twitter-icon.png' %}"></a></li>
+                   <li><a href="#"><img src="{% static 'images/linkedin-icon.png' %}"></a></li>
+                   <li><a href="#"><img src="{% static 'images/instagram-icon.png' %}"></a></li>
+                </ul>
+             </div>
+             <input type="text" class="email_text" placeholder="Enter Your Email" name="Enter Your Email">
+             <div class="subscribe_bt"><a href="#">Subscribe</a></div>
+          </div>
+       </div>
+    </div>
+ </div>
+ <!-- footer section end -->
+ <!-- copyright section start -->
+ <!-- copyright section end -->    
+ <!-- Javascript files-->
+ <script src="{% static 'js/jquery.min.js' %}"></script>
+ <script src="{% static 'js/popper.min.js' %}"></script>
+ <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+ <script src="{% static 'js/jquery-3.0.0.min.js' %}"></script>
+ <script src="{% static 'js/plugin.js' %}"></script>
+ <!-- sidebar -->
+ <script src="{% static 'js/jquery.mCustomScrollbar.concat.min.js' %}"></script>
+ <script src="{% static 'js/custom.js' %}"></script>
+ <!-- javascript --> 
+ <script src="{% static 'js/owl.carousel.js' %}"></script>
+ <script src="https:cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
+ <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+ <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>

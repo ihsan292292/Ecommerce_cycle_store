@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html>
+  {% load static %}
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+        <link href='https://fonts.googleapis.com/css?family=Lato:400,300' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="{% static 'assets/css/main.css' %}" />
+		    <noscript><link rel="stylesheet" href="{% static 'assets/css/noscript.css' %}" /></noscript>
+        
+    
+        <style>
+            body {
+                background: url('{% static 'images/cycle-bg.jpg'%}') no-repeat center center;
+                background-size: 100%;
+                background-position: 30%;
+                background-attachment: fixed;
+              }
+              
+              
+              .text {
+                font-family: raleway;
+                font-size: 40px;
+                position: absolute center;
+                text-align: center;
+                padding-left: 0%;
+                color: #000;
+                margin-top: 43px;
+              }
+              
+              .text1 {
+                font-family: raleway;
+                font-size: 21px;
+                text-align: center;
+                margin-top: -20px;
+                color: #000;
+              }
+              
+              {% comment %} .image {
+                text-align: center;
+                width: 200px;
+                /* Container's dimensions */
+                
+                height: 200px;
+                -webkit-border-radius: 75%;
+                -moz-border-radius: 75%;
+                box-shadow: 0 0 0 1px #eee;
+                background:url() center center no-repeat;
+                background-size: cover;
+                margin: auto;
+                margin-top: 20px;
+                margin-bottom: -30px;
+                align-content: center;
+              }
+               {% endcomment %}
+              
+              
+              .trick {
+                display: inline-block;
+                vertical-align: middle;
+                height: 150px;
+              }
+              
+              .image:hover {
+                box-shadow: 0px 5px 20px .9px #3F3F3F;
+              }
+              
+              .image:hover {
+                -webkit-transform: scale(1.12);
+                transform: scale(1.12);
+                -webkit-transition: 1.6s ease-in-out;
+                transition: 1.6s ease-in-out;
+              }
+              
+              
+              
+              .trick:hover img {
+                -webkit-transform: scale(1);
+                transform: scale(1);
+              }
+              
+              #overlay {
+                -webkit-border-radius: 50%;
+                -moz-border-radius: 50%;
+                padding: 0 0 0 0;
+                opacity: 1.0;
+                -webkit-transition: opacity 2.25s ease;
+                -moz-transition: opacity 10.25s ease;
+              }
+              
+              #box:hover #overlay {
+                opacity: 1;
+              }
+              
+              
+              
+              
+              
+              .panel-group{
+                width:350px;
+                margin:auto;
+                /*margin:50px 400px 50px 400px;*/
+                max-width:100%;
+              }
+              
+              .panel-heading{
+                background-color:transparent !important;
+              }
+              
+              .title{
+                text-align: center;
+                background-color:transparent;
+                color:#000;
+                font-family:lato;
+                font-weight:300;
+                font-size:15px;
+                max-width:100%;
+              }
+              #accordion{
+                background-color: transparent;
+                max-width:100%;
+                margin-bottom:200px;
+              }  
+              .btn-outline {
+                color: inherit;
+                transition: all 1.4s;
+                background-color: transparent;
+              }
+              /* button CSS */
+              
+              .btn-danger.btn-outline {
+                margin-top: 9px;
+                background-color: transparent;
+                color: #000;
+                border-color: #000;
+                padding:auto;
+                padding:10px 0px 10px 0px;
+                margin: 1px 5px 1px 0px;
+                width: 100%;
+                text-align:center;
+                font-family: raleway;
+                font-weight: 300;
+                max-width:100%;
+              }
+             
+              /*---------    Contact Form    ------------*/
+              
+              input::-webkit-input-placeholder,
+              textarea::-webkit-input-placeholder {
+                color: #000;
+                font-size: 15px;
+              }
+              /* on hover placeholder */
+              
+              input:hover::-webkit-input-placeholder,
+              textarea:hover::-webkit-input-placeholder {
+                color: #fff;
+                font-size: 15px;
+                font-family: raleway;
+              }
+              
+              input:hover:focus::-webkit-input-placeholder,
+              textarea:hover:focus::-webkit-input-placeholder {
+                color: #fff;
+                font-family: raleway;
+              }
+              
+              input:hover::-moz-placeholder,
+              textarea:hover::-moz-placeholder {
+                color: #fff;
+                font-size: 15px;
+                font-family: raleway;
+              }
+              
+              input:hover:focus::-moz-placeholder,
+              textarea:hover:focus::-moz-placeholder {
+                color: #fff;
+                font-family: raleway;
+              }
+              
+              input:hover::placeholder,
+              textarea:hover::placeholder {
+                color: #fff;
+                font-size: 15px;
+                font-family: raleway;
+              }
+              
+              input:hover:focus::placeholder,
+              textarea:hover:focus::placeholder {
+                color: #fff;
+                font-family: raleway;
+              }
+              
+              input:hover::placeholder,
+              textarea:hover::placeholder {
+                color: #fff;
+                font-size: 15px;
+                font-family: raleway;
+              }
+              
+              input:hover:focus::-ms-placeholder,
+              textarea:hover::focus:-ms-placeholder {
+                color: #fff;
+                font-family: raleway;
+              }
+              
+              #form {
+                position: relative;
+                width: 100%;
+                margin: 0px auto 0px auto;
+                font-family: raleway;
+              }
+              
+              input {
+                font-family: raleway;
+                font-size: 15px;
+                width: 100%;
+                height: 50px;
+                padding: 0px 12px 0px 12px;
+                background: transparent;
+                outline: none;
+                color: #726659;
+                border: solid 1px #eee;
+                border-bottom: none;
+                transition: all 0.9s ease-in-out;
+                -webkit-transition: all 0.9s ease-in-out;
+                -moz-transition: all 0.9s ease-in-out;
+                -ms-transition: all 0.9s ease-in-out;
+              }
+              
+              input:hover {
+                background: #ccc;
+                color: #fff;
+                font-family: raleway;
+              }
+              
+              textarea {
+                width: 100%;
+                max-width: 100%;
+                height: 110px;
+                max-height: 110px;
+                padding: 15px;
+                background: transparent;
+                outline: none;
+                color: #000;
+                font-family: raleway;
+                font-size: 25px;
+                border: solid 1px #eee;
+                transition: all 0.9s ease-in-out;
+                -webkit-transition: all 0.9s ease-in-out;
+                -moz-transition: all 0.9s ease-in-out;
+                -ms-transition: all 0.9s ease-in-out;
+              }
+              
+              textarea:hover {
+                background: #ccc;
+                color: #fff;
+                font-family: raleway;
+              }
+              
+              #submit {
+                width: 100%;
+                padding: 0;
+                font-family: raleway;
+                font-size: 20px;
+                color: #000;
+                outline: none;
+                cursor: pointer;
+                border: solid 1px #eee;
+                border-top: none;
+                margin-bottom: 0px;
+              }
+              
+              #submit:hover {
+                color: #fff;
+                background-color: #ccc;
+              }
+
+              .tiles article{
+                width: calc(25.33333% - 2.5em);
+              }
+        </style>
+    </head>
+    <body>
+      <div class="container" style="float:left;margin-top:5%;margin-left:100px;">
+      <div id="main">
+						<div class="inner">
+							<header>
+								<b><p style="color:#041668;margin-top:5%">Hi {{data.seller_name}}, You are a seller now here you can add cycle, view cycle,view order details, view payment details, get feedback from customer, and message to customers</p></b>
+							</header>
+							<section class="tiles">
+								<article class="style1">
+									<span class="image" style="width:340px;height:200px">
+										<img src="{% static 'images/add-cycle.jpg' %}"/>
+									</span>
+									<a href="{% url 'product-add'%}">
+										<h2>ADD CYCLES</h2>
+										<div class="content">
+											<p>Add Cycle details here</p>
+										</div>
+									</a>
+								</article>
+								<article class="style2">
+									<span class="image" style="width:340px;height:200px">
+										<img src="{% static 'images/view-cycles.jpg' %}" alt="" />
+									</span>
+									<a href="{% url 'seller-view-product' %}">
+										<h2>VIEW CYCLES</h2>
+										<div class="content">
+											<p>Here you can view, edit and delete cylce details</p>
+										</div>
+									</a>
+								</article>
+								<article class="style3">
+									<span class="image" style="width:340px;height:200px">
+										<img src="{% static 'images/orders.jpg' %}" alt="" />
+									</span>
+									<a href="generic.html">
+										<h2>ORDERS</h2>
+										<div class="content">
+											<p>Here you can view orders</p>
+										</div>
+									</a>
+								</article>
+								<article class="style4">
+									<span class="image" style="width:340px;height:200px">
+										<img src="{% static 'images/payment.jpeg' %}" alt="" />
+									</span>
+									<a href="generic.html">
+										<h2>PAYMENTS</h2>
+										<div class="content">
+											<p>Here you can view payment details</p>
+										</div>
+									</a>
+								</article>
+								<article class="style5">
+									<span class="image" style="width:340px;height:200px">
+										<img src="{% static 'images/feedback.jpeg' %}" alt="" />
+									</span>
+									<a href="generic.html">
+										<h2>FEEDBACK</h2>
+										<div class="content">
+											<p>Here you can see customer feedback</p>
+										</div>
+									</a>
+								</article>
+								<article class="style6">
+									<span class="image" style="width:340px;height:200px">
+										<img src="{% static 'images/future-launches.jpeg' %}" alt="" />
+									</span>
+									<a href="generic.html">
+										<h2>FUTURE LAUNCHES</h2>
+										<div class="content">
+											<p>Here you can send future lauche cycles to customers</p>
+										</div>
+									</a>
+								</article>
+              </section>
+              </div>
+            </div>
+          </div>
+      <div class="box" style="margin-left:70%;float:right;margin-top:-40%;margin-right:8%;">
+          <div id="overlay">
+            <div class="image">
+              
+              <div class="trick">
+               <img src="/static/profile_photos/{{img}}" style="width:200px;height:170px;margin-left:70px">
+              </div>
+            </div>
+            <ul class="text">{{data.seller_name}}</ul>
+            <div class="text1">{{data.company_name}}</div>
+ 
+      <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+        <div class="panel panel-default">
+          <div class="panel-heading " role="tab" id="headingOne">
+            <h4 class="panel-title ">
+              <a>
+                <div class="title  btn btn-danger btn-outline btn-lg">ABOUT</div>
+              </a>
+            </h4>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+            <div class="panel-body">
+              <b>Email:{{data.email}}<br></b>
+              <b>Phone:{{data.phone}}<br></b>
+              <b>Company Name:{{data.company_name}}</b>
+            </div>
+          </div>
+          <div class="panel-heading " role="tab" id="headingOne">
+            <h4 class="panel-title ">
+              <a href="http://127.0.0.1:8000/edit-profile/">
+                <div class="title  btn btn-danger btn-outline btn-lg">UPDATE PROFILE</div>
+              </a>
+            </h4>
+          </div>
+          <div class="panel-heading " role="tab" id="headingOne">
+            <h4 class="panel-title ">
+              <a href="{% url 'seller-logout' %}">
+                <div class="title  btn btn-danger btn-outline btn-lg">LOGOUT</div>
+              </a>
+            </h4>
+          </div>
+        </div>
+        
+      </div>
+      {% comment %}  {% endcomment %}
+      
+    </body>
+</html>

@@ -1,0 +1,272 @@
+{% load static %}
+<html>
+    <head>
+        
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://kit.fontawesome.com/013739e9d3.js" crossorigin="anonymous"></script>
+
+        <!-- Google Fonts -->
+        <link
+        href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+        rel="stylesheet"
+        />
+        <!-- MDB -->
+        <link
+        href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.1/mdb.min.css"
+        rel="stylesheet" />
+        <!-- MDB -->
+        <script
+        type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.1/mdb.min.js"
+        ></script>
+        {% comment %} css {% endcomment %}
+        <style>
+        .cart-wrap {
+            padding: 40px 0;
+            font-family: 'Open Sans', sans-serif;
+        }
+        .main-heading {
+            font-size: 19px;
+            margin-bottom: 20px;
+        }
+        .table-wishlist table {
+            width: 100%;
+        }
+        .table-wishlist thead {
+            border-bottom: 1px solid #e5e5e5;
+            margin-bottom: 5px;
+        }
+        .table-wishlist thead tr th {
+            padding: 8px 0 18px;
+            color: #484848;
+            font-size: 15px;
+            font-weight: 400;
+        }
+        .table-wishlist tr td {
+            padding: 25px 0;
+            vertical-align: middle;
+        }
+        .table-wishlist tr td .img-product {
+            width: 72px;
+            float: left;
+            margin-left: 8px;
+            margin-right: 31px;
+            line-height: 63px;
+        }
+        .table-wishlist tr td .img-product img {
+            width: 100%;
+        }
+        .table-wishlist tr td .name-product {
+            font-size: 15px;
+            color: #484848;
+            padding-top: 8px;
+            line-height: 24px;
+            width: 50%;
+        }
+        .table-wishlist tr td.price {
+            font-weight: 600;
+        }
+        .table-wishlist tr td .quanlity {
+            position: relative;
+        }
+        
+        .total {
+            font-size: 24px;
+            font-weight: 600;
+            color: #8660e9;
+        }
+        .display-flex {
+            display: flex;
+        }
+        .align-center {
+            align-items: center;
+        }
+        .round-black-btn {
+            border-radius: 25px;
+            background: #212529;
+            color: #fff;
+            padding: 5px 20px;
+            display: inline-block;
+            border: solid 2px #212529; 
+            transition: all 0.5s ease-in-out 0s;
+            cursor: pointer;
+            font-size: 14px;
+            width:159px;
+            margin-left:20px;
+        }
+        .round-black-btn:hover,
+        .round-black-btn:focus {
+            background: transparent;
+            color: #212529;
+            text-decoration: none;
+        }
+        .mb-10 {
+            margin-bottom: 10px !important;
+        }
+        .mt-30 {
+            margin-top: 30px !important;
+        }
+        .d-block {
+            display: block;
+        }
+        .custom-form label {
+            font-size: 14px;
+            line-height: 14px;
+        }
+        .pretty.p-default {
+            margin-bottom: 15px;
+        }
+        .pretty input:checked~.state.p-primary-o label:before, 
+        .pretty.p-toggle .state.p-primary-o label:before {
+            border-color: #8660e9;
+        }
+        .pretty.p-default:not(.p-fill) input:checked~.state.p-primary-o label:after {
+            background-color: #8660e9 !important;
+        }
+        .main-heading.border-b {
+            border-bottom: solid 1px #ededed;
+            padding-bottom: 15px;
+            margin-bottom: 20px !important;
+        }
+        .custom-form .pretty .state label {
+            padding-left: 6px;
+        }
+        .custom-form .pretty .state label:before {
+            top: 1px;
+        }
+        .custom-form .pretty .state label:after {
+            top: 1px;
+        }
+        .custom-form .form-control {
+            font-size: 14px;
+            height: 38px;
+        }
+        .custom-form .form-control:focus {
+            box-shadow: none;
+        }
+        .custom-form textarea.form-control {
+            height: auto;
+        }
+        .mt-40 {
+            margin-top: 40px !important; 
+        }
+        .in-stock-box {
+            background: #ff0000;
+            font-size: 12px;
+            text-align: center;
+            border-radius: 25px;
+            padding: 4px 15px;
+            display: inline-block;  
+            color: #fff;
+            width:100px;
+        }
+        .trash-icon {
+            font-size: 20px;
+            color: #212529;
+            margin-left:20px
+        }
+    </style>
+    <script>
+        function search_cycle() {
+            var input, filter, mclass, sclass, h, i, txtValue;
+            input = document.getElementById("searchbar");
+            filter = input.value.toUpperCase();
+            mclass = document.querySelectorAll("table tbody tr"); // Select table rows within tbody
+            for (i = 0; i < mclass.length; i++) {
+                sclass = mclass[i].querySelector(".name-product"); // Select the "name-product" element within the row
+                txtValue = sclass.textContent || sclass.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    mclass[i].style.display = "";
+                } else {
+                    mclass[i].style.display = "none";
+                }
+            }
+        }
+        
+    </script>
+
+    </head>
+<!------ Include the above in your HEAD tag ---------->
+<body>
+
+<nav class="navbar navbar-light bg-light">
+    <div class="container-fluid">
+        
+      <form class="d-flex input-group w-auto">
+        <a href="{% url 'view-cart' %}"><button type="button" class="btn btn-primary me-2">View Cart</button></a>
+        <a href="{% url 'buyer_index_all' %}"><button type="button" class="btn btn-primary me-2">Back to Main Home</button></a>
+        <input
+          type="search"
+          class="form-control rounded"
+          placeholder="Search"
+          aria-label="Search"
+          aria-describedby="search-addon"
+          id="searchbar"
+          onkeyup="search_cycle()"
+        />
+        <span class="input-group-text border-0" id="search-addon">
+          <i class="fas fa-search"></i>
+        </span>
+      </form>
+    </div>
+  </nav>
+
+
+	<div class="cart-wrap">
+		<div class="container" style="max-width:1353px;">
+	        <div class="row">
+			    <div class="col-md-12">
+			        <div class="main-heading mb-10">My wishlist</div>
+			        <div class="table-wishlist">
+				        <table cellpadding="0" cellspacing="0" border="0" width="100%">
+				        	<thead>
+                                
+					        	<tr>
+					        		<th width="45%">Brand Name</th>
+					        		<th width="15%">Age Range</th>
+                                    <th width="15%">Bike Type</th>
+                                    <th width="15%">No of Speed</th>
+                                    <th width="15%">Price</th>
+					        		<th width="15%">Stock Status</th>
+					        		<th width="15%"></th>
+					        		<th width="10%"></th>
+					        	</tr>
+					        </thead>
+					        <tbody>
+                                {% for i,j,k,l,m,n,o,p,q,r in data %}
+                                {% if i == u_id %}
+					        	<tr>
+					        		<td width="45%">
+					        			<div class="display-flex align-center">
+		                                    <div class="img-product">
+		                                        <img src="/static/Uploaded_images/{{q}}" alt="" class="mCS_img_loaded">
+		                                    </div>
+		                                    <div class="name-product">
+		                                        {{m}}
+		                                    </div>
+	                                    </div>
+	                                </td>
+					        		<td width="15%" class="price">{{l}}</td>
+                                    <td width="15%" class="price">{{k}}</td>
+                                    <td width="15%" class="price">{{n}}</td>
+                                    <td width="15%" class="price">₹ {{p}}</td>
+					        		<td width="15%"><span class="in-stock-box">In Stock</span></td>
+					        		<td width="15%"><a href="{% url 'add-cart' j  %}"><button class="round-black-btn small-btn">Add to Cart</button></a></td>
+					        		<td width="10%" class="text-center"><a href="{% url 'delete-wishlist' r %}" class="trash-icon"><i class="far fa-trash-alt"></i></a></td>
+					        	</tr>
+                                {% endif %}
+                                {% endfor %}
+					        	
+				        	</tbody>
+				        </table>
+				    </div>
+			    </div>
+			</div>
+		</div>
+	</div>
+    
+</body>
+</html>
+	
